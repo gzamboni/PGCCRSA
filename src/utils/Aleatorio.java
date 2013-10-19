@@ -21,4 +21,26 @@ public class Aleatorio {
 	            return i;
 	    } while (true);
 	}
+	
+	public static BigInteger geraPrimoAleatorio(BigInteger max) {
+		BigInteger num;
+		do {
+			num = Aleatorio.numeroAleatorio(max); 
+			if(Primos.validaPrimo(num, 60)) {
+				break;
+			}
+		} while ( true );
+		return num;
+	}
+	
+	public static BigInteger geraPrimoAleatorio(Integer bitLenght) {
+		BigInteger num;
+		do {
+			num = Aleatorio.numeroAleatorio(bitLenght); 
+			if(Primos.validaPrimo(num, 60)) {
+				break;
+			}
+		} while ( true );
+		return num;
+	}
 }
