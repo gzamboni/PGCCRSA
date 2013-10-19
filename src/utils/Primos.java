@@ -7,15 +7,12 @@ public class Primos {
 
 	private final static Random rand = new Random();
 	
-    private static BigInteger getRandomFermatBase(BigInteger n)
+    private static BigInteger baseAleatoria(BigInteger n)
     {
-        // Rejection method: ask for a random integer but reject it if it isn't
-        // in the acceptable set.
-
         while (true)
         {
             final BigInteger a = new BigInteger (n.bitLength(), rand);
-            // must have 1 <= a < n
+            // regra 1 <= a < n
             if (BigInteger.ONE.compareTo(a) <= 0 && a.compareTo(n) < 0)
             {
                 return a;
@@ -23,14 +20,14 @@ public class Primos {
         }
     }
 	
-	public static boolean checkPrime(BigInteger n, int maxIterations)
+	public static boolean validaPrimo(BigInteger n, int maxInteracoes)
     {
         if (n.equals(BigInteger.ONE))
             return false;
 
-        for (int i = 0; i < maxIterations; i++)
+        for (int i = 0; i < maxInteracoes; i++)
         {
-            BigInteger a = getRandomFermatBase(n);
+            BigInteger a = baseAleatoria(n);
             a = a.modPow(n.subtract(BigInteger.ONE), n);
 
             if (!a.equals(BigInteger.ONE))
