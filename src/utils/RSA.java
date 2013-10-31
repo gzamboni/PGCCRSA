@@ -58,8 +58,8 @@ public class RSA {
 	}
 	
 	public RSA(Integer bitLenght) {
-		this.p = Aleatorio.geraPrimoAleatorio(bitLenght);
-		this.q = Aleatorio.geraPrimoAleatorio(bitLenght);
+		this.p = Aleatorio.geraPrimoAleatorio(bitLenght/2);
+		this.q = Aleatorio.geraPrimoAleatorio(bitLenght/2);
 		init();
 	}
 

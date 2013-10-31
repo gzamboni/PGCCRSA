@@ -39,4 +39,20 @@ public class ChaveRSA {
 		ret[1] = this.n;
 		return ret;
 	}
+	
+	public String encriptWithPrivateKey(String message) {
+		return (new BigInteger(message.getBytes())).modPow(this.getE(), this.getN()).toString(16);
+	}
+	
+	public String encriptWithPublicKey(String message) {
+		return (new BigInteger(message.getBytes())).modPow(this.getD(), this.getN()).toString(16);
+	}
+
+	public String decriptWithPrivateKey(String message) {
+		return new String((new BigInteger(message,16)).modPow(this.getD(), this.getN()).toByteArray());
+	}
+	
+	public String decriptWithPublicKey(String message) {
+		return new String((new BigInteger(message,16)).modPow(this.getE(), this.getN()).toByteArray());
+	}
 }
