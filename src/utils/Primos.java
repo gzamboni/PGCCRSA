@@ -28,7 +28,7 @@ public class Primos {
         for (int i = 0; i < maxInteracoes; i++)
         {
             BigInteger a = baseAleatoria(n);
-            a = a.modPow(n.subtract(BigInteger.ONE), n);
+            a = a.modPow(n.subtract(BigInteger.ONE), n); // <<<----- Complexidade 
 
             if (!a.equals(BigInteger.ONE))
                 return false;
